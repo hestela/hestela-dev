@@ -13,7 +13,7 @@ I'll leave this post here in case it helps someone with a device that is not coo
 
 ## TTGO Lora32 Adventure
 I was going through my old meshtastic devices and found that I still had a TTGO Lora32 with PCB revision T3_v1.6 20180606.  
-![TTGO T3_V1.6 20180606](files/ttgo_T3_v1_6.jpg)  
+![TTGO T3_V1.6 20180606](../../files/ttgo_T3_v1_6.jpg)  
 I think I updated the firmware on this a few years ago but I honestly  don't remember so I'm not sure if this has factory meshtastic firmware or not.  
 At the time of this writing, this device still gets firmware support on meshtastic so I thought it would be easy to just use the [Web Flasher](https://flasher.meshtastic.org/).
 I tried flashing "LILYGO T-LoRa V2.1-1.6" and "LILYGO T-LoRa T3-S3" on the latest beta version and after some fiddling with the on/off switch and holding down the reset to get it into flashing mode I was able to get it to flash but each time the device would just turn on some of LEDs and sit there, no screen activity.
