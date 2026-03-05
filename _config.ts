@@ -2,7 +2,9 @@ import lume from "lume/mod.ts";
 import blog from "blog/mod.ts";
 import relativeUrls from "lume/plugins/relative_urls.ts";
 
-const site = lume();
+const site = lume({
+  location: new URL("https://hestela.dev"),
+});
 
 site.use(relativeUrls());
 
