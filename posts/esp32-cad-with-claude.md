@@ -73,6 +73,12 @@ ntpdate -q esp32-ntpserv; ntpdate -q time.nist.gov
 2026-03-24 23:13:09.762481 (-0700) +0.000746 +/- 0.024571 time.nist.gov 132.163.97.6 s1 no-leap
 ```
 
+update: I also did this later the next day to see if there was more drift. I think I may try avoiding using the RTC time for the radio stuff, especially if its been too long since the last GPS fix. So at that point it would just be a decent clock.
+```
+2026-03-25 14:11:25.130000 (-0700) -2.796399 +/- 1.063500 esp32-ntpserv 192.168.2.107 s2 no-leap
+2026-03-25 14:11:28.052117 (-0700) +0.001257 +/- 0.024032 time.nist.gov 132.163.96.6 s1 no-leap
+```
+
 If you want to try and do this yourself or steal the code for some other ESP32 board the OpenSCAD model and code is [here in github repo](https://github.com/hestela/m5dial-wifi-ntp-server). The code for the NTP server should be fairly easy to put on other ESP32 boards.
 
 It uses about 1W of power when the screen is on so a 3000mAh battery theoretically gets you around 12 hours of runtime.
