@@ -33,7 +33,7 @@ I'm not amazing at CAD, I have gotten much better at using Onshape in the last y
 
 I put together this basic sketch and some extra details and after one of the Claude "interviews" I was able to get a pretty good result on the first pass. 
 ![box-sketch](../../files/box-sketch.png)
-I found it helpful to give a reason behind each cutout, for example I said something like "on the lid, 4mm from the front edge, create a hole 44mm in diameter for the M5Dial". The result is comments around the generated OpenSCAD code for that part of the model which is real helpful to come back to, since I could just start a new session and say "in box.scad, put a chamfer around the usn type-c port so that most cables can fit and dust ingress is reduced".  
+I found it helpful to give a reason behind each cutout, for example I said something like "on the lid, 4mm from the front edge, create a hole 44mm in diameter for the M5Dial". The result is comments around the generated OpenSCAD code for that part of the model which is real helpful to come back to, since I could just start a new session and say "in box.scad, put a chamfer around the USB type-c port so that most cables can fit and dust ingress is reduced".  
 
 In one way, it not super surprising that Claude can work on OpenSCAD because it is basically just programming but the code generates one or more 3D parts.
 ![box-model](../../files/box-model.webp) 
@@ -58,7 +58,8 @@ And finally, the finished product
 
 ## NTP Results
 Before doing this, I ran `sudo ntpdate time.nist.gov`.  
-Result from the RTC without a GPS lock. About 30 minutes before this, I got the time from GPS and then shut off the device.
+About 30 minutes before this, I got the time from GPS and then shut off the device.
+Result from the RTC without a GPS lock:
 ```
 ntpdate -q esp32-ntpserv; ntpdate -q time.nist.gov
 2026-03-24 23:00:34.691000 (-0700) -1.112715 +/- 1.007431 esp32-ntpserv 192.168.2.107 s2 no-leap
