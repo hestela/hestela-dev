@@ -13,6 +13,7 @@ site.use(blog());
 
 const giscusScript = (document: Document) => {
   const script = document.createElement("script");
+  script.id = "giscus-script";
   new Map<string, string | boolean>([
     ["type", "text/javascript"],
     ["src", "https://giscus.app/client.js"],
@@ -43,6 +44,33 @@ const giscusScript = (document: Document) => {
     }
   });
 
+  // Keep the Giscus widget in sync with the site's own light/dark toggle.
+  // This runs synchronously right after the (async) client.js script tag is
+  // inserted, so it always wins the race and sets the correct theme before
+  // Giscus reads its own attributes.
+  const themeSync = document.createElement("script");
+  themeSync.textContent = `(function () {
+    function giscusTheme() {
+      var t = localStorage.getItem("theme") ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      return t === "dark" ? "dark_dimmed" : "light";
+    }
+    var el = document.getElementById("giscus-script");
+    if (el) el.setAttribute("data-theme", giscusTheme());
+
+    var nativeChangeTheme = window.changeTheme;
+    window.changeTheme = function () {
+      if (nativeChangeTheme) nativeChangeTheme();
+      var frame = document.querySelector("iframe.giscus-frame");
+      if (frame) {
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: giscusTheme() } } },
+          "https://giscus.app",
+        );
+      }
+    };
+  })();`;
+
   const aside = document.createElement("aside");
   aside.classList.add("giscus");
 
@@ -51,7 +79,7 @@ const giscusScript = (document: Document) => {
   link.as = "script";
   link.href = "https://giscus.app/client.js";
 
-  return [aside, link, script] as const;
+  return [aside, link, script, themeSync] as const;
 };
 
 site.process([".md"], (pages) => {

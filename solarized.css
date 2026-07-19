@@ -1,0 +1,37 @@
+/* Solarized color palette overrides for @lumeland/ds */
+
+:root {
+  --color-background: #fdf6e3; /* base3 */
+  --color-highlight: #eee8d5; /* base2 */
+  --color-line: #eee8d5; /* base2 */
+  --color-base: #586e75; /* base01 - headings/emphasis */
+  --color-text: #657b83; /* base00 - body text */
+  --color-dim: #93a1a1; /* base1 - secondary text */
+  --color-primary: #268bd2; /* blue */
+  --color-primary-highlight: #2aa198; /* cyan */
+  --code-comment: #93a1a1; /* base1 */
+  --code-token-1: #6c71c4; /* violet: builtin/constant/keyword/property/selector/symbol */
+  --code-token-2: #d33682; /* magenta: boolean/number/tag */
+  --code-token-3: #2aa198; /* cyan: string/char/url/variable/operator */
+  --code-token-4: #859900; /* green: atrule/attr-name/regex/important */
+  --code-inserted: #859900;
+  --code-deleted: #dc322f;
+}
+
+[data-theme="dark"] {
+  --color-background: #002b36; /* base03 */
+  --color-highlight: #073642; /* base02 */
+  --color-line: #073642; /* base02 */
+  --color-base: #93a1a1; /* base1 - headings/emphasis */
+  --color-text: #839496; /* base0 - body text */
+  --color-dim: #586e75; /* base01 - secondary text */
+  --color-primary: #268bd2; /* blue */
+  --color-primary-highlight: #2aa198; /* cyan */
+  --code-comment: #586e75; /* base01 */
+  --code-token-1: #6c71c4;
+  --code-token-2: #d33682;
+  --code-token-3: #2aa198;
+  --code-token-4: #859900;
+  --code-inserted: #859900;
+  --code-deleted: #dc322f;
+}
