@@ -1,9 +1,9 @@
 {
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.2.1/",
-    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.14/jsx-runtime.ts",
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.2.6/",
+    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.15/jsx-runtime.ts",
     "blog/": "https://deno.land/x/lume_theme_simple_blog@v1.16.2/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.14.16/"
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.15.7/"
   },
   "tasks": {
     "lume": {
@@ -18,7 +18,11 @@
       "description": "Run and serve the site for development",
       "command": "deno task lume -s"
     },
-    "cms": "deno task lume cms"
+    "cms": "deno task lume cms",
+    "new": {
+      "description": "Create new content or code using artifacts",
+      "command": "deno task lume new"
+    }
   },
   "compilerOptions": {
     "types": [
@@ -33,7 +37,7 @@
   ],
   "lint": {
     "plugins": [
-      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.2.1/lint.ts"
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.2.6/lint.ts"
     ],
     "rules": {
       "exclude": [
@@ -68,5 +72,11 @@
       "ffi": true,
       "sys": true
     }
+  },
+  "allowScripts": {
+    "deny": [
+      "npm:sharp",
+      "npm:@parcel/watcher"
+    ]
   }
 }
